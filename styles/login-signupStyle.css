@@ -1,0 +1,215 @@
+form {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    display: flex;
+    font-size: 13px;
+}
+
+#loginForm {
+    left: 100%;
+    display: flex;
+}
+#signupForm {
+    left: 0px;
+    display: flex;
+}
+
+.main-containers {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#cat-image,
+#personal-info {
+    flex: 1;
+    order: 1;
+}
+#login,
+#login-credentials {
+    flex: 1;
+    order: 2;
+}
+#cat-image img {
+    width: 50%;
+}
+
+.spacer {
+    height: 5%;
+}
+.title {
+    height: 15%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.inputs {
+    width: 87%;
+    height: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; 
+}
+.inputBox-wrapper,
+.button-wrapper {
+    width: 100%;
+    height: 15%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#forgotPassword {
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.inputBox-container {
+    width: 100%;
+    height: 90%;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 5px #B9B9B9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputBox-container:hover,
+.signup-inputBox:hover {
+    box-shadow: 2px 5px 5px #B9B9B9;
+    transform: translate(-1px,-2px);
+}
+
+.inputBox-container input {
+    outline: none;
+    border: none;
+    height: 100%;
+    width: 90%;
+    box-sizing: border-box;
+    padding-left: 10px;
+    font-size: 12px;
+}
+
+.inputBox-container img {
+    height: 80%;
+    width: 10%;
+    margin-left: 5px;
+}
+
+.inputBox-container button {
+    height: 100%;
+    width: 100%;
+    background-color: #444444;
+    color: #F9F9F9;
+    font-size: 15px;
+    font-weight: bold;
+    outline: none;
+    border: none;
+}
+
+#btn-container:active {
+    box-shadow: 2px 2px 5px #B9B9B9;
+    transform: translate(1px,2px);
+}
+
+
+.signup-inputBox {
+    height: 90%;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 5px #B9B9B9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+
+.signup-inputBox input,
+.signup-inputBox select {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    font-size: 12px;
+    padding-left: 3px;
+    color: #444444;
+}
+#mobileNumberInput {
+    width: 100%;
+}
+#mobileNumPrefix {
+    width: 15%;
+}
+
+.signup-inputBox-wrapper {
+    width: 100%;
+    height: 20%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#checkBox {
+    width: 100%;
+    height: 15%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+}
+
+#signup-login-Text {
+    justify-content: center;
+    align-items: center;
+}
+
+#checkBox h3 {
+    font-size: 11px;
+}
+#checkBox a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #444444;
+}
+
+#studentNumber,
+#mobileNumber,
+#firstName {
+    width: 60%;
+}
+
+#yearLevel,
+#birthDate,
+#middleInitial {
+    width: 38%;
+}
+#email,
+#lastName {
+    width: 100%;
+}
+
+form span {
+    font-weight: bold;
+}
+form span:hover {
+    color: #000000;
+    cursor: pointer;
+}
+
+#error-message-personalInfo,
+#error-message-loginCredentials,
+#password-strength {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: rgba(245, 83, 83, 0.87);
+}
+
