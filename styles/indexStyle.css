@@ -1,0 +1,29 @@
+body {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	color: #444444;
+	display: flex;
+	flex-flow: column;
+	background-color: #F2F2F2;
+	height: 100vh;
+	width: 100vw;
+	font-size: 15px;
+}
+h1 {
+	font-size: 25px;
+}
+section {
+	display: flex;
+	height: 100%;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+}
+.login-signup-box {
+	position: relative;
+	background-color: #F9F9F9;
+	height: 400px;
+	width: 720px;
+	border-radius: 10px;
+	box-shadow: 2px 2px 5px #B9B9B9;
+	overflow: hidden;
+}
