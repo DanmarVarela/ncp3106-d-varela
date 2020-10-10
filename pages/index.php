@@ -23,6 +23,8 @@
         </div>  
     </section>
 </body>
+<script src="../scripts/functions.js"></script>
 <script src="../scripts/data-validation-functions.js"></script>
-
 </html>
+
+
