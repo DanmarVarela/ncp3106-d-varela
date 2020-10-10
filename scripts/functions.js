@@ -95,3 +95,23 @@ function isPasswordFormat(str){
         return false;
     }
 }
+
+function swipeLeft(){
+    let form1 = document.getElementById('signupForm');
+    let form2 = document.getElementById('loginForm');
+
+    form1.style.transition = 'all 1.5s cubic-bezier(0,1,0,1) ';
+    form2.style.transition = 'all 1.5s cubic-bezier(0,1,0,1)';
+    form1.style.transform = 'translate(-100%)';
+    form2.style.transform = 'translate(-100%)';
+}
+
+function swipeRight(){
+    let form1 = document.getElementById('signupForm');
+    let form2 = document.getElementById('loginForm');
+
+    form1.style.transition = 'all 1.5s cubic-bezier(0,1,0,1) ';
+    form2.style.transition = 'all 1.5s cubic-bezier(0,1,0,1)';
+    form1.style.transform = 'translate(0px)';
+    form2.style.transform = 'translate(0px)';
+}

@@ -50,7 +50,7 @@
             </div>
             <h4 id="error-message-personalInfo"></h4>
             <div id="signup-login-Text" class="signup-inputBox-wrapper">
-                <h3>Already have an account? <span id="sign-up-text">Log-in</span></h3>
+                <h3>Already have an account? <span id="sign-up-text" onclick="swipeLeft()">Log-in</span></h3>
             </div>
         </div>
     </div>
@@ -72,7 +72,6 @@
                     <input type="password" name="signupPassword" placeholder="Password" oninput="validatePassword('signupPassword')" maxlength="20" required>
                 </div>
             </div>
-            <h4 id="password-strength"></h4>
             <div class="inputBox-wrapper" id="confirmPassword">
                 <div class="inputBox-container">
                     <img src="../src/key.svg" alt="failed to load image">

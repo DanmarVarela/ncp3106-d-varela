@@ -30,7 +30,7 @@
                     <button>Log-in</button>
                 </div>  
             </div>
-            <h3>Don't have an account? <span>Register</span></h3>
+            <h3>Don't have an account? <span onclick="swipeRight()">Register</span></h3>
         </div>
     </div>
 </form>
