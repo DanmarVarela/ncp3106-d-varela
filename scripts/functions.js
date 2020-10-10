@@ -32,6 +32,14 @@ function isNumber(str){
     }
 }
 
+function isMobileNumberFormat(str){
+    if(/^(9)+/.test(str)){
+        return true;
+    }else {
+        return false;
+    }
+}
+
 function isEmailFormat(str){
     let pattern = /^[\w]+.{1}[\w]+@{1}(ue.edu.ph){1}$/i;
 

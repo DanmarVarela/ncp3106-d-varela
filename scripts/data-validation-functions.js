@@ -35,6 +35,11 @@ function validateMobileNum(mobileNum){
     }else if (isCharactersBetween(mobileNumObj.value,1,9) == true) {
         setErrorDisp(errorObj,mobileNumObj,"Invalid Mobile Number");
         return 0;
+    }else if (mobileNumObj.value.length == 10){
+        if(isMobileNumberFormat(mobileNumObj.value) == false){
+            setErrorDisp(errorObj,mobileNumObj,"Invalid Mobile Number");
+            return 0;
+        }
     }
     setDefault(errorObj,mobileNumObj);
 }
