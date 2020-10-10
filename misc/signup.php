@@ -40,7 +40,7 @@
                     <input id="mobileNumberInput" type="text" name="mobileNumber" placeholder="Mobile Number" oninput="validateMobileNum('mobileNumber')" maxlength="10" required>
                 </div>
                 <div class="signup-inputBox" id="birthDate">
-                    <input type="text" name="birthdate" placeholder="BirthDate" oninput="validateBirthDate('birthdate')" onfocusin="(this.type='date')" onfocusout="(this.type='text')" required>
+                    <input type="text" name="birthdate" placeholder="BirthDate" onchange="validateBirthDate('birthdate')" onfocusin="(this.type='date')" onfocusout="(this.type='text')" required>
                 </div>
             </div>
             <div class="signup-inputBox-wrapper">

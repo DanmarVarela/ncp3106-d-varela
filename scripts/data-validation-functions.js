@@ -48,11 +48,13 @@ function validateBirthDate(bDay){
 
     if (birthdate >= currentDate){
         setErrorDisp(errorObj,bDayObj,"Invalid Birthdate");
+        return 0;
     }else if (determineAge(birthdate) < 18){
         setErrorDisp(errorObj,bDayObj,"You should be at least 18 years old");
+        return 0;
     }
+    setDefault(errorObj,bDayObj);
 
-    console.log(determineAge(birthdate));
 }  
 
 function validateEmail(email){
