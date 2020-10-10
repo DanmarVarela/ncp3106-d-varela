@@ -1,3 +1,4 @@
+
 <form action="../misc/signup-validation.php" method="post" id="signupForm" name="signupForm" spellcheck="false">   
     <div class="main-containers" id="personal-info">
         <div class="spacer"></div>
@@ -39,7 +40,7 @@
                     <input id="mobileNumberInput" type="text" name="mobileNumber" placeholder="Mobile Number" oninput="validateMobileNum('mobileNumber')" maxlength="10">
                 </div>
                 <div class="signup-inputBox" id="birthDate">
-                    <input type="date" name="birthdate" placeholder="BirthDate" oninput="validateBirthDate('birthdate')">
+                    <input type="text" name="birthdate" placeholder="BirthDate" oninput="validateBirthDate('birthdate')" onfocusin="(this.type='date')" onfocusout="(this.type='text')">
                 </div>
             </div>
             <div class="signup-inputBox-wrapper">
@@ -91,3 +92,4 @@
         </div>  
     </div>
 </form>
+

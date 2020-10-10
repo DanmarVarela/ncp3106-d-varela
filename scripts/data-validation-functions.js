@@ -8,8 +8,7 @@ function validateName(name){
 
     if (isAlphabetOnly(nameObj.value) == false){
         setErrorDisp(errorObj,nameObj,"Alphabetical characters only");
-        nameObj.value = nameObj.value.slice(0,-1);
-    }else {
+    }else{
         setDefault(errorObj,nameObj);
     }
 }
@@ -20,18 +19,11 @@ function validateStudNum(num){
 
     if (isNumber(numObj.value) == false){
         numObj.value = numObj.value.slice(0,-1);
-
-        if (isCharactersBetween(numObj.value,0,0) == true) {
-            setDefault(errorObj,numObj);
-        }else {
-            setErrorDisp(errorObj,numObj,"Student Number should be 11 digits");
-        }
-
-    }else if (isCharactersBetween(numObj.value,11,11) == false) {
+    }else if (isCharactersBetween(numObj.value,1,10) == true) {
         setErrorDisp(errorObj,numObj,"Student Number should be 11 digits");
-    }else {
-        setDefault(errorObj,numObj);
+        return 0;
     }
+    setDefault(errorObj,numObj);
 }
 
 function validateMobileNum(mobileNum){
@@ -40,88 +32,72 @@ function validateMobileNum(mobileNum){
 
     if (isNumber(mobileNumObj.value) == false){
         mobileNumObj.value = mobileNumObj.value.slice(0,-1);
-
-        if (isCharactersBetween(mobileNumObj.value,0,0) == true) {
-            setDefault(errorObj,mobileNumObj);
-        }else {
-            setErrorDisp(errorObj,mobileNumObj,"Invalid Mobile number");
-        }
-
-    }else if (isCharactersBetween(mobileNumObj.value,10,10) == false) {
-        setErrorDisp(errorObj,mobileNumObj,"");
-    }else {
-        setDefault(errorObj,mobileNumObj);
+    }else if (isCharactersBetween(mobileNumObj.value,1,9) == true) {
+        setErrorDisp(errorObj,mobileNumObj,"Invalid Mobile Number");
+        return 0;
     }
+    setDefault(errorObj,mobileNumObj);
 }
 
 function validateBirthDate(bDay){
+    
     let bDayObj = document.forms["signupForm"][bDay];
     let errorObj = document.getElementById("error-message-personalInfo");
+    let birthdate = new Date(bDayObj.value);
+    let currentDate = new Date();
 
-    console.log(bDay.value);
-}
-
-
-
-//accompanying functions
-
-//allows alphabetical letters only. spaces and dashes are allowed only between words.
-//consecutive spaces or dash are not allowed. 
-function isAlphabetOnly(str){ 
-                            
-    let allNumSpecialChar = /[\d\W]/;
-    let spaceDash = /(\s|-)/;                       varela
-    let allSpaceDash = /(\s|-){2,}|^(\s|-)/;
-    let lastChar = str.charAt(str.length-1);
-    
-    if (allNumSpecialChar.test(lastChar) == true ){
-        if(spaceDash.test(lastChar) == true && allSpaceDash.test(str) == false){
-            return true;
-        }else {
-            return false;
-        }
-    }else {
-        return true;
+    if (birthdate >= currentDate){
+        setErrorDisp(errorObj,bDayObj,"Invalid Birthdate");
+    }else if (determineAge(birthdate) < 18){
+        setErrorDisp(errorObj,bDayObj,"You should be at least 18 years old");
     }
-}
 
-function isCharactersBetween(str,from, to){
-    if (str.length < from || str.length > to){
-        return false;
-    }else {
-        return true;
+    console.log(determineAge(birthdate));
+}  
+
+function validateEmail(email){
+    let emailObj = document.forms["signupForm"][email];
+    let errorObj = document.getElementById("error-message-personalInfo");
+
+    if (emailObj.value.length == 0){
+        setDefault(errorObj,emailObj);
+    }else if (isEmailFormat(emailObj.value) == false){
+        setErrorDisp(errorObj,emailObj,"Invalid Email");
+        return 0;
     }
+    setDefault(errorObj,emailObj);
 }
 
-function isNumber(str){
-    let numPattern = /[\d]/;
-    let lastChar = str.charAt(str.length-1)
-    if (numPattern.test(lastChar) == false){
-        return false;
-    }else {
-        return true;
+function validateUserName(username){
+    let usernameObj = document.forms["signupForm"][username];
+    let errorObj = document.getElementById("error-message-loginCredentials");
+
+    if (usernameObj.value.length == 0){
+        setDefault(errorObj,usernameObj);
+    }else if (isCharactersBetween(usernameObj.value,8,15) == false){
+        setErrorDisp(errorObj,usernameObj,"Username should be between 8 to 15 characters");
+        return 0;
+    }else if (isUsernameFormat(usernameObj.value) == false){
+        setErrorDisp(errorObj,usernameObj,"Numbers and Special Characters except _ and - are not allowed");
+        return 0;
     }
+    setDefault(errorObj,usernameObj);
 }
 
-function isEmailFormat(str){
-    let pattern = /^[\w]+.{1}[\w]+@{1}(ue.edu.ph){1}$/;
-    if (pattern.test(str) == true){
-        return true;
-    }else {
-        return false
+function validatePassword(pass){
+    let passwordObj = document.forms["signupForm"][pass];
+    let errorObj = document.getElementById("error-message-loginCredentials");
+
+    if (passwordObj.value.length == 0){
+        setDefault(errorObj,passwordObj);
+    }else if (isCharactersBetween(passwordObj.value,8,20) == false){
+        setErrorDisp(errorObj,passwordObj,"Password should be between 8 to 20 characters");
+        return 0;
+    }else if (isPasswordFormat(passwordObj.value) == false){
+        setErrorDisp(errorObj,passwordObj,"Password should be a combination of alphanumeric characters");
+        return 0;
     }
+    setDefault(errorObj,passwordObj);
+
 }
 
-function setErrorDisp(errorObj, inputBoxObj, str){
-    errorObj.innerHTML = str;
-    inputBoxObj.style.border = errorProperty;
-}
-function setDefault(errorObj, inputBoxObj){
-    errorObj.innerHTML = null;
-    inputBoxObj.style.border = "none";
-}
-
-
-buttonClicked(){
-    console.log("btn clicked");
-}
