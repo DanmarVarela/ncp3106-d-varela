@@ -1,10 +1,5 @@
 <?php
     session_start();
-    
-    if ($_SESSION["accountCreationFailed"] == true){
-        echo '<script> alert("Username already exists"); </script>';
-    }
-    $_SESSION["accountCreationFailed"] = false;
 ?>
 
 
@@ -34,4 +29,14 @@
 <script src="../scripts/loginFormDataValidation.js"></script>
 </html>
 
+<?php
+    if ($_SESSION["accountCreationFailed"] == true){
+        echo '<script> alert("Username already exists"); </script>';
+    }else if ($_SESSION["loginFailed"] == true){
+        echo '<script> alert("Account does not exist. Create an account instead"); </script>';
+        echo '<script> swipeLeft(); </script>';
+    }
+    $_SESSION["loginFailed"] = false;
+    $_SESSION["accountCreationFailed"] = false;
+?>
 

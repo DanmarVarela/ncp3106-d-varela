@@ -28,7 +28,7 @@
             <h4 id="error-message-loginForm"></h4>
             <div class="button-wrapper" id="btn-wrapper">
                 <div class="inputBox-container" id="btn-container">
-                    <button type="button" id="loginButton" onclick="validateLoginButton()">Log-in</button>
+                    <button type="button" id="loginButton" onclick="validateLoginButton()" name="loginButton">Log-in</button>
                 </div>  
             </div>
             <h3>Don't have an account? <span onclick="swipeRight()">Register</span></h3>
