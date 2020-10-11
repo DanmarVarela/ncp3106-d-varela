@@ -12,13 +12,13 @@
             <div class="inputBox-wrapper">
                 <div class="inputBox-container">
                     <img src="../src/account-icon.svg" alt="failed to load image">
-                    <input type="text" class="fullInputBox" name="username" placeholder="Username" oninput="checkEmpty('username')">
+                    <input type="text" class="fullInputBox" name="username" placeholder="Username" oninput="notEmpty('username')">
                 </div>
             </div>
             <div class="inputBox-wrapper">
                 <div class="inputBox-container">
                     <img src="../src/key.svg" alt="failed to load image">
-                    <input type="password" class="fullInputBox" name="password" placeholder="Password" oninput="checkEmpty('password')">
+                    <input type="password" class="fullInputBox" name="password" placeholder="Password" oninput="notEmpty('password')">
                 </div>
             </div>
             <div class="inputBox-wrapper" id="forgotPassword">
