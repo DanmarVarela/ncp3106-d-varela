@@ -85,7 +85,7 @@
             <h4 id="error-message-loginCredentials"></h4>
             <div class="button-wrapper">
                 <div class="inputBox-container">
-                    <button type="button" onclick="validateRegisterBtn()" id="RegisterButton">Register</button>
+                    <button type="button" onclick="validateRegisterBtn()" id="RegisterButton" name="RegisterButton">Register</button>
                 </div>  
             </div>
         </div>  

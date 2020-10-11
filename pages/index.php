@@ -1,6 +1,12 @@
 <?php
     session_start();
+    
+    if ($_SESSION["accountCreationFailed"] == true){
+        echo '<script> alert("Username already exists"); </script>';
+    }
+    $_SESSION["accountCreationFailed"] = false;
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
