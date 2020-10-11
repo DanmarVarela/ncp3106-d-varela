@@ -6,10 +6,11 @@ function validateName(name){
     let errorObj = document.getElementById("error-message-personalInfo");
     let nameObj = document.forms["signupForm"][name];
 
-    if (nameObj.value.length == 0){
-        setDefault(errorObj,nameObj);
+    if (nameObj.value.length == 0 && name != "middleInitial"){
+        setErrorDisp(errorObj,nameObj,"This field cannot be empty");
         return false;
-    }else if (isAlphabetOnly(nameObj.value) == false){
+    }
+    if (isAlphabetOnly(nameObj.value) == false){
         setErrorDisp(errorObj,nameObj,"Alphabetical characters only");
         return false;
     }
@@ -20,7 +21,10 @@ function validateStudNum(num){
     let numObj = document.forms["signupForm"][num];
     let errorObj = document.getElementById("error-message-personalInfo");
 
-    if (isNumber(numObj.value) == false){
+    if (numObj.value.length == 0){
+        setErrorDisp(errorObj,numObj,"This field cannot be empty");
+        return false;
+    }else if (isNumber(numObj.value) == false){
         numObj.value = numObj.value.slice(0,-1);
         return false;
     }else if (isCharactersBetween(numObj.value,1,10) == true) {
@@ -35,7 +39,10 @@ function validateMobileNum(mobileNum){
     let mobileNumObj = document.forms["signupForm"][mobileNum];
     let errorObj = document.getElementById("error-message-personalInfo");
 
-    if (isNumber(mobileNumObj.value) == false){
+    if (mobileNumObj.value.length == 0){
+        setErrorDisp(errorObj,mobileNumObj,"This field cannot be empty");
+        return false;
+    }else if (isNumber(mobileNumObj.value) == false){
         mobileNumObj.value = mobileNumObj.value.slice(0,-1);
         return false;
     }else if (isCharactersBetween(mobileNumObj.value,1,9) == true) {
@@ -58,7 +65,10 @@ function validateBirthDate(bDay){
     let birthdate = new Date(bDayObj.value);
     let currentDate = new Date();
 
-    if (birthdate >= currentDate){
+    if (bDayObj.value.length == 0){
+        setErrorDisp(errorObj,bDayObj,"This field cannot be empty");
+        return false;
+    }else if (birthdate >= currentDate){
         setErrorDisp(errorObj,bDayObj,"Invalid Birthdate");
         return false;
     }else if (determineAge(birthdate) < 18){
@@ -74,6 +84,9 @@ function validateEmail(email){
     let errorObj = document.getElementById("error-message-personalInfo");
 
     if (emailObj.value.length == 0){
+        setErrorDisp(errorObj,emailObj,"This field cannot be empty");
+        return false;
+    }else if (emailObj.value.length == 0){
         setDefault(errorObj,emailObj);
         return false;
     }else if (isEmailFormat(emailObj.value) == false){
@@ -89,6 +102,9 @@ function validateUserName(username){
     let errorObj = document.getElementById("error-message-loginCredentials");
 
     if (usernameObj.value.length == 0){
+        setErrorDisp(errorObj,usernameObj,"This field cannot be empty");
+        return false;
+    }else if (usernameObj.value.length == 0){
         setDefault(errorObj,usernameObj);
         return false;
     }else if (isCharactersBetween(usernameObj.value,8,15) == false){
@@ -107,7 +123,7 @@ function validatePassword(pass){
     let errorObj = document.getElementById("error-message-loginCredentials");
 
     if (passwordObj.value.length == 0){
-        setDefault(errorObj,passwordObj);
+        setErrorDisp(errorObj,usernameObj,"This field cannot be empty");
         return false;
     }else if (isCharactersBetween(passwordObj.value,8,20) == false){
         setErrorDisp(errorObj,passwordObj,"Password should be between 8 to 20 characters");
@@ -126,6 +142,9 @@ function validateConfirmPassword(confPassword){
     let errorObj = document.getElementById("error-message-loginCredentials");
 
     if (confPasswordObj.value.length == 0){
+        setErrorDisp(errorObj,confPasswordObj,"This field cannot be empty");
+        return false;
+    }else if (confPasswordObj.value.length == 0){
         setDefault(errorObj,confPasswordObj);
         return false;
     }else if (passwordObj.value != confPasswordObj.value){
@@ -155,6 +174,7 @@ function validateTerms(terms){
         setErrorDisp(errorObj,termsObj,"Please agree to our Terms and Conditions");
         return false;
     }
+    errorObj.innerHTML = "";
     return true;
 }
 
@@ -163,18 +183,24 @@ function validateRegisterBtn(){
     let confPasswordObj = document.forms["signupForm"]['signupConfirmPassword']; 
     let errorObj = document.getElementById("error-message-loginCredentials");
     let registerBtn = document.getElementById("RegisterButton");
+    let bDayObj = document.forms["signupForm"]['birthdate'];
 
     if (passwordObj.value != confPasswordObj.value){
         setErrorDisp(errorObj,confPasswordObj,"Password Mismatch");
         return 0;
-    }
-
-    if (validateName('lastName') == true && validateName('firstName') == true && validateName('middleInitial') == true
+    }else if (validateTerms('terms') == false){
+        errorObj.innerHTML = "Please agree to the Terms and Conditions";
+        return 0;
+    }else if (bDayObj.value.length == 0){
+        setErrorDisp(document.getElementById("error-message-personalInfo"),bDayObj,"This field cannot be empty");
+        return 0;
+    }else if (validateName('lastName') == true && validateName('firstName') == true && validateName('middleInitial') == true
         && validateStudNum('studentNumber') == true && validateMobileNum('mobileNumber') == true && validateBirthDate('birthdate') == true
         && validateEmail('email') == true && validateUserName('signupUsername') == true && validatePassword('signupPassword') == true 
-        && validateConfirmPassword('signupConfirmPassword') == true && validateYearLevel('yearLevel') == true && validateTerms('terms') == true){
-            
+        && validateConfirmPassword('signupConfirmPassword') == true && validateYearLevel('yearLevel') == true){
+
             registerBtn.type = "submit";
+    }else {
+        errorObj.innerHTML = "Please fill up all the necessary data";
     }
 }
-

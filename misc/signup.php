@@ -79,7 +79,7 @@
                 </div>
             </div>
             <div id="checkBox">
-                <input type="checkbox" name="terms">
+                <input type="checkbox" name="terms" onchange="validateTerms('terms')">
                 <h3>By checking this, you agree to our <span> Terms and Conditions</span></h3>
             </div>
             <h4 id="error-message-loginCredentials"></h4>
