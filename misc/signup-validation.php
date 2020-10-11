@@ -13,16 +13,27 @@ $passwordOrig = $_POST['signupPassword'];
 $passwordRepeat = $_POST['signupConfirmPassword'];
 
 require 'openDb.php';
+if ($passwordOrig == $passwordRepeat){
+  $stmt = $conn->prepare("SELECT count(*) as cntUser FROM users WHERE 
+        username = :username");
+        $stmt->bindValue(':username',$userName,PDO::PARAM_STR);
+        $stmt->execute();
+        $count = $stmt->fetchColumn();
 
-if ($passwordOrig == $passwordRepeat ) {
+        $response = "<span style ='color:green;'>Available.</span>";
+        if($count > 0){
+            $response = "<span style = 'color:red;'> Not Available.</span>";
+            
+        }
+        echo $response;
+}
+elseif($passwordOrig == $passwordRepeat ) {
   try{
     $sql = "INSERT INTO users (lastName,firstName,middleInitial,studentNumber,yearLevel,birthDate,mobileNumber,ueMailAddress,username,password) 
             VALUES (?,?,?,?,?,?,?,?,?,?)";
           
     // use exec() because no results are returned 
     $conn->prepare($sql)->execute([$lastName,$firstName,$middleInitial,$studentNumber,$yearLevel,$birthDate,$mobileNumber,$ueEmailAddress,$userName,$passwordOrig]);
-    echo $studentNumber ;
-    echo $mobileNumber;
     echo "Successfully Registered";
       
   } catch(PDOException $e) {
