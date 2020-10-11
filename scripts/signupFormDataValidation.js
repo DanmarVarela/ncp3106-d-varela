@@ -14,6 +14,7 @@ function validateName(name){
         setErrorDisp(errorObj,nameObj,"Alphabetical characters only");
         return false;
     }
+    setDefault(errorObj,nameObj);
     return true;
 }
 
