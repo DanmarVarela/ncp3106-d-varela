@@ -193,6 +193,7 @@ function validateRegisterBtn(){
         return 0;
     }else if (bDayObj.value.length == 0){
         setErrorDisp(document.getElementById("error-message-personalInfo"),bDayObj,"This field cannot be empty");
+        errorObj.innerHTML = "Please fill up all the necessary data";
         return 0;
     }else if (validateName('lastName') == true && validateName('firstName') == true && validateName('middleInitial') == true
         && validateStudNum('studentNumber') == true && validateMobileNum('mobileNumber') == true && validateBirthDate('birthdate') == true

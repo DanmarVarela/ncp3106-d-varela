@@ -207,7 +207,8 @@ form span:hover {
 }
 
 #error-message-personalInfo,
-#error-message-loginCredentials {
+#error-message-loginCredentials,
+#error-message-loginForm {
     width: 100%;
     display: flex;
     justify-content: center;

@@ -24,7 +24,8 @@
     </section>
 </body>
 <script src="../scripts/functions.js"></script>
-<script src="../scripts/data-validation-functions.js"></script>
+<script src="../scripts/signupFormDataValidation.js"></script>
+<script src="../scripts/loginFormDataValidation.js"></script>
 </html>
 
 
