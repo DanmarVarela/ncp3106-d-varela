@@ -25,7 +25,7 @@
                     <input type="text" name="studentNumber" placeholder="Student Number" oninput="validateStudNum('studentNumber')" maxlength="11" required>
                 </div>
                 <div class="signup-inputBox" id="yearLevel" required>
-                    <select name="yearLevel">
+                    <select name="yearLevel" onchange="validateYearLevel('yearLevel')">
                         <option selected disabled value = "0">Year Level</option>
                         <option value="1">1st Year</option>
                         <option value="2">2nd Year</option>

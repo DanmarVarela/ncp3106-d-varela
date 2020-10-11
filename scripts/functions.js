@@ -41,7 +41,7 @@ function isMobileNumberFormat(str){
 }
 
 function isEmailFormat(str){
-    let pattern = /^[\w]+.{1}[\w]+@{1}(ue.edu.ph){1}$/i;
+    let pattern = /^[\w]+(\.){1}[\w]+(@ue.edu.ph){1}$/i;
 
     if (/[\d]/.test(str)){
         return false;
