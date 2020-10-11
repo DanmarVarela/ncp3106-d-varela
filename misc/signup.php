@@ -26,7 +26,7 @@
                 </div>
                 <div class="signup-inputBox" id="yearLevel" required>
                     <select name="yearLevel">
-                        <option selected disabled>Year Level</option>
+                        <option selected disabled value = "0">Year Level</option>
                         <option value="1">1st Year</option>
                         <option value="2">2nd Year</option>
                         <option value="3">3rd Year</option>
@@ -75,7 +75,7 @@
             <div class="inputBox-wrapper" id="confirmPassword">
                 <div class="inputBox-container">
                     <img src="../src/key.svg" alt="failed to load image">
-                    <input type="password" name="signupConfirmPassword" placeholder="Confirm Password">
+                    <input type="password" name="signupConfirmPassword" placeholder="Confirm Password" oninput="validateConfirmPassword('signupConfirmPassword')" required>
                 </div>
             </div>
             <div id="checkBox">
@@ -85,7 +85,7 @@
             <h4 id="error-message-loginCredentials"></h4>
             <div class="button-wrapper">
                 <div class="inputBox-container">
-                    <button>Register</button>
+                    <button type="button" onclick="validateRegisterBtn()" id="RegisterButton">Register</button>
                 </div>  
             </div>
         </div>  

@@ -1,0 +1,4 @@
+CREATE TABLE `meowcodingcatdb`.`users` ( `lastName` VARCHAR(255) NOT NULL , `firstName` VARCHAR(255) NOT NULL , `middleInitial` VARCHAR(255) NOT NULL , `studentNumber` VARCHAR(255) NOT NULL , `yearLevel` TINYINT(255) NOT NULL , `birthDate` DATE NOT NULL , `mobileNumber` VARCHAR(255) NOT NULL , `ueMailAddress` VARCHAR(255) NOT NULL , `username` VARCHAR(255) NOT NULL , `password` VARCHAR(255) NOT NULL , `userID` INT(255) NOT NULL AUTO_INCREMENT , PRIMARY KEY (`userID`)) ENGINE = InnoDB;
+
+
+NOTE: database name is : meowcodingcatdb
