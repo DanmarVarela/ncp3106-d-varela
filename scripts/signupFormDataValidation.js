@@ -164,15 +164,19 @@ function checkEmptyInputBox(){
     return false;
 }
 
-
-
 function validateRegisterBtn(){
     let passwordObj = document.forms["signupForm"]["signupPassword"];
     let confPasswordObj = document.forms["signupForm"]['signupConfirmPassword']; 
     let errorObj = document.getElementById("error-message-loginCredentials");
     let registerBtn = document.getElementById("RegisterButton");
-    
-    
+    let noError = false;
+
+    //check if there are any errors
+    if(validateName('lastName') && validateName('firstName') && validateName('middleInitial') && validateStudNum('studentNumber') && validateYearLevel('yearLevel') && validateMobileNum('mobileNumber') && validateBirthDate('birthdate') && validateEmail('email') && validateUserName('signupUsername') && validatePassword('signupPassword') && validateConfirmPassword('signupConfirmPassword') && validateTerms('terms')){
+
+        noError = true;
+    }
+
     if (checkEmptyInputBox() == false){
         //check for password mismatch and if terms and conditions is checked
         if (passwordObj.value != confPasswordObj.value){
@@ -181,14 +185,9 @@ function validateRegisterBtn(){
             errorObj.innerHTML = "To be a member, you need to agree to our Terms and Conditions";
         }else {
             errorObj.innerHTML = "";
+            if (noError == true){
+                registerBtn.type = "submit";
+            }
         }
     }
-
-    //check if there are any errors
-    if(validateName('lastName') && validateName('firstName') && validateName('middleInitial') && validateStudNum('studentNumber') && validateYearLevel('yearLevel') && validateMobileNum('mobileNumber') && validateBirthDate('birthdate') && validateEmail('email') && validateUserName('signupUsername') && validatePassword('signupPassword') && validateConfirmPassword('signupConfirmPassword') && validateTerms('terms')){
-
-        registerBtn.type = "submit";
-    }
-
-
 }

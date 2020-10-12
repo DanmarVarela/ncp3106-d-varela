@@ -20,9 +20,9 @@ if (isset($_POST['RegisterButton'])){
   $passwordRepeat = $_POST['signupConfirmPassword'];
 
   //prepare and execute sql query
-  $sqlCommand = "SELECT * FROM users WHERE username = :username AND password = :password";
+  $sqlCommand = "SELECT * FROM users WHERE username = :username";
   $stmt = $conn->prepare($sqlCommand);
-  $stmt->execute(['username'=>$userName, 'password'=>$passwordOrig]);
+  $stmt->execute(['username'=>$userName]);
   
   // add the data to database if there is no existing username and password
   $results = $stmt->rowCount();
